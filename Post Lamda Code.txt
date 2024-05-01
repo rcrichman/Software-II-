@@ -1,0 +1,41 @@
+import java.util.TimeZone;
+import java.time.ZoneId;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.function.BiFunction;
+
+public class UserLocation {
+    public static void main(String[] args) {
+        // Get the user's time zone
+        TimeZone userTimeZone = TimeZone.getDefault();
+        
+        // Get the user's current time in their time zone
+        LocalDateTime currentTime = LocalDateTime.now(ZoneId.systemDefault());
+        
+        // Get the user's default locale
+        Locale userLocale = Locale.getDefault();
+        
+        // Check if the locale pertains to French or a French-speaking region
+        boolean isFrenchSpeaking = userLocale.getLanguage().equals("fr") || userLocale.getCountry().equals("CA")
+                || userLocale.getCountry().equals("FR") || userLocale.getCountry().equals("BE")
+                || userLocale.getCountry().equals("CH") || userLocale.getCountry().equals("LU");
+        
+        // Lambda expression to format the UTC offset
+        BiFunction<Integer, Integer, String> formatUtcOffset = (hours, minutes) -> {
+            String sign = (hours >= 0) ? "+" : "-";
+            return String.format("UTC %s%02d:%02d", sign, Math.abs(hours), minutes);
+        };
+        
+        // Lambda expression for language-specific messages
+        BiFunction<String, String, String> getMessage = (englishMsg, frenchMsg) -> {
+            return isFrenchSpeaking ? frenchMsg : englishMsg;
+        };
+        
+        // Display user's location and UTC information
+        System.out.println(getMessage.apply("User's Location: ", "Emplacement de l'utilisateur: ") + userTimeZone.getID());
+        System.out.println(getMessage.apply("Current Local Time: ", "Heure locale actuelle: ") + currentTime);
+        System.out.println(getMessage.apply("UTC Offset: ", "Décalage UTC: ") + formatUtcOffset.apply(userTimeZone.getRawOffset() / (1000 * 60 * 60),
+                Math.abs((userTimeZone.getRawOffset() / (1000 * 60)) % 60)));
+    }
+}
