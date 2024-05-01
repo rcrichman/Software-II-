@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="293.0" prefWidth="451.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="srcCode.SchedulingMain_Controller">
+   <children>
+      <Label fx:id="lblAppname_fxid" layoutX="14.0" layoutY="14.0" text="Scheduling Application">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Pane layoutX="14.0" layoutY="49.0" prefHeight="232.0" prefWidth="366.0" style="-fx-border-color: black;">
+         <children>
+            <Label fx:id="lblLogin_fxid" layoutX="17.0" layoutY="8.0" text="LOGIN" underline="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUsername_fxid" layoutX="17.0" layoutY="59.0" text="Username:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblPassword_fxid" layoutX="17.0" layoutY="96.0" text="Password:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUsername_fxid" layoutX="94.0" layoutY="57.0" prefHeight="25.0" prefWidth="214.0" />
+            <PasswordField fx:id="txtPassword_fxid" layoutX="94.0" layoutY="94.0" prefHeight="25.0" prefWidth="214.0" />
+            <Button id="btnDeletePart" fx:id="btnLogin_fxid" layoutX="162.0" layoutY="185.0" mnemonicParsing="false" onAction="#btnLogin_Action" text="Login">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button id="btnDeletePart" fx:id="btnExit_fxid" layoutX="308.0" layoutY="185.0" mnemonicParsing="false" onAction="#btnExit_Action" text="Exit">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblLocation_fxid" layoutX="189.0" layoutY="11.0" prefHeight="20.0" prefWidth="233.0" text="location" textAlignment="RIGHT" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMessage_fxid" layoutX="17.0" layoutY="150.0" prefHeight="17.0" prefWidth="394.0" text="messages" textFill="#ec0d0d" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</Pane>
